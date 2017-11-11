@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Bar = require('./beer')
+// const Bar = require('./beer')
 
 const barSchema = new Schema({
     name: String,
