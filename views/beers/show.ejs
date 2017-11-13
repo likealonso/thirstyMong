@@ -1,0 +1,25 @@
+<h1><%= beers.name %> </h1>
+<h3><%= beers.style %> </h3>
+<h4>Comments</h4>
+<% beers.comments.forEach(comment => { %>
+    <%= comment.content %><br>
+    <%= comment.timestamps %><br>
+    
+<% }) %>
+
+<form action="/beers/<%= beers._id %>/comments" method="post">
+    <textarea name="content" cols="30" rows="5"></textarea>
+    <label for="content"></label> <br>
+    
+    <button name="id" value="<%= beers._id %>"
+    >New Comment
+    </button>
+</form>
+
+
+
+
+
+
+
+

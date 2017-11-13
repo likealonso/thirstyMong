@@ -1,0 +1,15 @@
+<h1> <%= bars.name %> </h1>
+<h3>Location: <%= bars.location %> </h3>
+Beers: <% bars.beers.forEach (beer => { %>
+    <%= beer.type %>
+<% }) %>
+
+
+<form action="/bars/<%= bars._id %>/beers" method="post">
+    <textarea name="name" cols="30" rows="2"></textarea>
+    <label for="name"></label> <br>
+    
+    <button name="id" value="<%= bars.beers._id %>"
+    >New Beer
+    </button>
+</form>

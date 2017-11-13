@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const beers = require('./../controllers/beersController')
+// const beers = require('./../controllers/beersController')
 
 const commentSchema = new Schema(
     {
@@ -8,18 +8,33 @@ const commentSchema = new Schema(
     },
     {  
         timestamps: true
+        
+        
     }
 )
 
 const beerSchema = new Schema({
-    name: String,
-    location: String,
-    bars: [{type: Schema.Types.ObjectId, ref: 'Beer'}]
+    name: { type: String, required: true },
+    style: String,
+    bars: [{type: Schema.Types.ObjectId, ref: 'Bar'}],
+    comments: [commentSchema]
 },
   {  
-      timestamps: true
+    timestamps: true
   }
 )
 
+// beerSchema.post('remove', function(doc) {
+//     this.model('Bar').find(
+//       {beers: doc._id},
+//       function(err, bars) {
+//         bars.forEach(function(bar) {
+//           bar.beers.remove(doc._id);
+//           bar.save();
+//         });
+//       }
+//     );
+//   });
 
-module.exports = beerSchema
+
+module.exports = mongoose.model('Beer', beerSchema)

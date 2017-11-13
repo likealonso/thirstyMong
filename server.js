@@ -7,6 +7,8 @@ var methodOverride = require('method-override')
 var bodyParser = require('body-parser');
 require('./config/db')
 
+
+var index = require('./routes/index')
 var beers = require('./routes/beers');
 var bars = require('./routes/bars');
 
@@ -25,8 +27,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'))
 
-app.use('/', beers);
+
+
+app.use('/beers', beers);
 app.use('/bars', bars);
+app.use('/', index);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

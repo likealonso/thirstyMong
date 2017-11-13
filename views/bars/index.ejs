@@ -1,1 +1,14 @@
-hello!
+<h1>Bars</h1>
+
+<% bars.forEach((bar) => { %>
+    <h2><%= bar.name %></h2>
+<a href="/bars/<%= bar._id%>">Show bar</a><br>
+<a href="/bars/<%= bar._id%>/edit">Edit bar</a>
+
+    
+<% }) %>
+<br><br>
+<a href="/bars/new">Add a bar</a>
+
+
+

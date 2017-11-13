@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bars</title>
+</head>
+<body>
+    <h2>Edit bar</h2>
+    
+    <form action="/bars/<%= bars._id %>?_method=PUT" method="post">
+        <label>Name
+            <input type="text" value="<%= bars.name %>" name="name">
+        </label><br><br>
+        <label>Location
+            <input type="text" value="<%= bars.location %>" name="location">
+        </label><br><br>
+        
+        <input type="submit" value="Edit bar">
+        <a href="/bars">View all bars</a>
+    </form>
+</body>
+</html>
